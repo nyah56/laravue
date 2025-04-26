@@ -1,0 +1,30 @@
+<?php
+namespace App\Http\Resources;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class StockMovementResource extends JsonResource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @return array<string, mixed>
+     */
+    public function toArray(Request $request): array
+    {
+        return [
+            'id'                => $this->id,
+            'product_name'      => $this->product->name,
+            'date'              => $this->date,
+            'type'              => $this->type,
+            'qty'               => $this->quantity,
+            'reason'            => $this->reason,
+            'manifest_hardcopy' => $this->manifest_hardcopy,
+            'meta'              => $this->meta,
+            // 'properties'   => $this->properties,
+
+        ];
+
+    }
+}
