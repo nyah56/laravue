@@ -1,40 +1,39 @@
 <?php
 namespace App\Repositories;
 
-use App\Models\Supplier;
+use App\Models\Role;
 
-class SupplierRepository
+class RoleRepository
 {
     /**
      * Create a new class instance.
      */
-
     public function getAll()
     {
-        return Supplier::all();
+        return Role::all();
     }
     public function getById($id)
     {
-        return Supplier::find($id);
+        return Role::find($id);
     }
     public function create($data)
     {
-        return Supplier::create($data);
+        return Role::create($data);
     }
     public function update($id, $data)
     {
-        $supplier = Supplier::find($id);
-        if ($supplier) {
-            $supplier->update($data);
-            return $supplier;
+        $role = Role::find($id);
+        if ($role) {
+            $role->update($data);
+            return $role;
         }
         return null;
     }
     public function delete($id)
     {
-        $supplier = Supplier::find($id);
-        if ($supplier) {
-            $supplier->delete();
+        $role = Role::find($id);
+        if ($role) {
+            $role->delete();
             return true;
         }
         return false;

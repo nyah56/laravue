@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuditController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\StockMovementController;
 use App\Http\Controllers\SupplierController;
@@ -36,6 +37,12 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/stock-movement/{id}', [StockMovementController::class, 'show']);
     Route::put('/stock-movement/{id}', [StockMovementController::class, 'update']);
     Route::delete('/stock-movement/{id}', [StockMovementController::class, 'destroy']);
+
+    Route::get('/role', [RoleController::class, 'index']);
+    Route::post('/role', [RoleController::class, 'store']);
+    Route::get('/role/{id}', [RoleController::class, 'show']);
+    Route::put('/role/{id}', [RoleController::class, 'update']);
+    Route::delete('/role/{id}', [RoleController::class, 'destroy']);
 });
 
 Route::get('/user', function (Request $request) {
