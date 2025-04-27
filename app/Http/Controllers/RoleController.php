@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RoleRequest;
 use App\Http\Resources\RoleResource;
 use App\Services\RoleService;
 use Illuminate\Http\Request;
@@ -36,13 +37,14 @@ class RoleController extends Controller
         ], 404);
     }
     // on store and update dont forget add role_image logic on storage link
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
         $validated = $request->validated();
         $role      = $this->role->create($validated);
-        return response()->json([
-            'data' => $role,
-        ]);
+        // return response()->json([
+        //     'data' => $role,
+        // ]);
+        return RoleResource::make($role);
     }
     public function update(Request $request, $id)
     {
@@ -59,7 +61,7 @@ class RoleController extends Controller
     }
     public function destroy($id)
     {
-        dd($id);
+        // dd($id);
         $deleted = $this->role->delete($id);
         if ($deleted) {
             return response()->json([
