@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/audits', [AuditController::class, 'index']);
-Route::middleware('auth:api')->group(function () {
+Route::middleware('auth:sanctum')->group(function () {
     Route::get('/products', [ProductController::class, 'index']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/products/{id}', [ProductController::class, 'show']);
