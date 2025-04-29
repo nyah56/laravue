@@ -10,7 +10,7 @@ class ProductRepository
      */
     public function getAll()
     {
-        return Products::with('supplier')->get();
+        return Products::whereHas('supplier')->get();
     }
     public function getById($id)
     {
