@@ -13,15 +13,15 @@ class SupplierRepository
     {
         return Supplier::all();
     }
-    public function getDeleted()
+    public function getTrashed()
     {
         return Supplier::onlyTrashed()->get();
     }
-    public function restoreItemDeleted($id)
+    public function restoreItemTrashed($id)
     {
         return Supplier::onlyTrashed()->find($id)->restore();
     }
-    public function restoreAllDeleted()
+    public function restoreAllTrashed()
     {
         return Supplier::onlyTrashed()->restore();
     }

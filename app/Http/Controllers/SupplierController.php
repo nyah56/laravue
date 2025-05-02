@@ -18,16 +18,16 @@ class SupplierController extends Controller
             'data' => $this->supplier->getAll(),
         ]);
     }
-    public function getDeleted()
+    public function getTrashed()
     {
         return response()->json([
-            'data' => $this->supplier->getDeleted(),
+            'data' => $this->supplier->getTrashed(),
         ]);
     }
-    public function restoreItemDeleted($id)
+    public function restore($id)
     {
 
-        $supplier = $this->supplier->restoreItemDeleted($id);
+        $supplier = $this->supplier->restoreItemTrashed($id);
 
         // dd($supplier_name);
         if (! $supplier) {
@@ -39,10 +39,10 @@ class SupplierController extends Controller
             'message' => 'Supplier not found',
         ], 404);
     }
-    public function restoreAllDeleted()
+    public function restoreAll()
     {
 
-        $supplier = $this->supplier->restoreAllDeleted();
+        $supplier = $this->supplier->restoreAllTrashed();
 
         // dd($supplier_name);
 
@@ -73,7 +73,7 @@ class SupplierController extends Controller
         $supplier = $this->supplier->create($validated);
         return response()->json([
             'data' => $supplier,
-        ]);
+        ], 201);
     }
     public function update(SupplierRequest $request, $id)
     {
@@ -94,7 +94,7 @@ class SupplierController extends Controller
         if ($deleted) {
             return response()->json([
                 'message' => 'Supplier deleted successfully',
-            ]);
+            ], 204);
         }
         return response()->json([
             'message' => 'Supplier not found',

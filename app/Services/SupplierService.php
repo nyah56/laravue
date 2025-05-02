@@ -20,17 +20,17 @@ class SupplierService
     {
         return $this->supplier->getAll();
     }
-    public function getDeleted()
+    public function getTrashed()
     {
-        return $this->supplier->getDeleted();
+        return $this->supplier->getTrashed();
     }
-    public function restoreItemDeleted($id)
+    public function restoreItemTrashed($id)
     {
-        $this->supplier->restoreItemDeleted($id);
+        $this->supplier->restoreItemTrashed($id);
     }
-    public function restoreAllDeleted()
+    public function restoreAllTrashed()
     {
-        $this->supplier->restoreAllDeleted();
+        $this->supplier->restoreAllTrashed();
     }
     public function getById($id)
     {
