@@ -21,6 +21,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 
     Route::get('/supplier', [SupplierController::class, 'index']);
+    Route::get('/supplier/deleted/', [SupplierController::class, 'getDeleted']);
+    Route::get('/supplier/deleted/{id}', [SupplierController::class, 'restoreItemDeleted']);
+    Route::get('/supplier/restore-deleted/', [SupplierController::class, 'restoreAllDeleted']);
     Route::post('/supplier', [SupplierController::class, 'store']);
     Route::get('/supplier/{id}', [SupplierController::class, 'show']);
     Route::put('/supplier/{id}', [SupplierController::class, 'update']);

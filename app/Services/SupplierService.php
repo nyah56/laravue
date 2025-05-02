@@ -20,6 +20,18 @@ class SupplierService
     {
         return $this->supplier->getAll();
     }
+    public function getDeleted()
+    {
+        return $this->supplier->getDeleted();
+    }
+    public function restoreItemDeleted($id)
+    {
+        $this->supplier->restoreItemDeleted($id);
+    }
+    public function restoreAllDeleted()
+    {
+        $this->supplier->restoreAllDeleted();
+    }
     public function getById($id)
     {
         return $this->supplier->getById($id);

@@ -18,6 +18,40 @@ class SupplierController extends Controller
             'data' => $this->supplier->getAll(),
         ]);
     }
+    public function getDeleted()
+    {
+        return response()->json([
+            'data' => $this->supplier->getDeleted(),
+        ]);
+    }
+    public function restoreItemDeleted($id)
+    {
+
+        $supplier = $this->supplier->restoreItemDeleted($id);
+
+        // dd($supplier_name);
+        if (! $supplier) {
+            return response()->json([
+                'message' => 'Data Restored: ',
+            ]);
+        }
+        return response()->json([
+            'message' => 'Supplier not found',
+        ], 404);
+    }
+    public function restoreAllDeleted()
+    {
+
+        $supplier = $this->supplier->restoreAllDeleted();
+
+        // dd($supplier_name);
+
+        return response()->json([
+            'message' => 'Data Restored: ',
+        ]);
+
+    }
+
     public function show($id)
     {
         $supplier = $this->supplier->getById($id);

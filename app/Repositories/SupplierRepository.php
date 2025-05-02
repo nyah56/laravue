@@ -13,6 +13,18 @@ class SupplierRepository
     {
         return Supplier::all();
     }
+    public function getDeleted()
+    {
+        return Supplier::onlyTrashed()->get();
+    }
+    public function restoreItemDeleted($id)
+    {
+        return Supplier::onlyTrashed()->find($id)->restore();
+    }
+    public function restoreAllDeleted()
+    {
+        return Supplier::onlyTrashed()->restore();
+    }
     public function getById($id)
     {
         return Supplier::find($id);
