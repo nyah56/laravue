@@ -18,9 +18,11 @@ class SupplierRequest extends FormRequest
     {
         if ($this->isMethod('post')) {
             return [
-                'name'     => 'required|string|max:255',
-                'address'  => 'required|string|max:255',
-                'contacts' => 'json',
+                'name'           => 'required|string|max:255',
+                'address'        => 'required|string|max:255',
+                'contacts'       => 'array',
+                'contacts.phone' => 'string',
+                'contacts.email' => 'email',
             ];
 
         } else {
