@@ -19,10 +19,9 @@ class SupplierFactory extends Factory
     {
         return [
             //
-            'name'         => $this->faker->company(),
-            'company_logo' => $this->faker->imageUrl(),
-            'address'      => $this->faker->city(),
-            'contacts'     => json_encode(["key1" => $this->faker->randomNumber()]),
+            'name'     => $this->faker->company(),
+            'address'  => $this->faker->city(),
+            'contacts' => json_encode(["key1" => $this->faker->randomNumber()]),
         ];
     }
 }

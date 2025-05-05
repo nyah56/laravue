@@ -14,7 +14,7 @@ class Supplier extends Model implements AuditableContract
     use HasUuids, HasFactory, SoftDeletes, Auditable;
     protected $fillable = [
         'name',
-        'company_logo',
+        // 'company_logo',
         'address',
         'contacts',
     ];
