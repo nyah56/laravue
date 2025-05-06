@@ -30,6 +30,19 @@ class SupplierTest extends TestCase
 
         $response->assertStatus(200);
     }
+    public function test_can_list_suppliers_trashed(): void
+    {
+        $user = \App\Models\User::factory()->create();
+        // $user = \App\Models\User::first();
+
+        // $sqid      = $user->sqid;
+        // $firstUser = \App\Models\User::findBySqid('usr_oFZyClNwqI');
+        // Supplier::factory()->count(3)->create();
+
+        $response = $this->actingAs($user, 'sanctum')->getJson('/api/supplier/trashed');
+
+        $response->assertStatus(200);
+    }
 
     /**
      * Test the store endpoint of SupplierController.

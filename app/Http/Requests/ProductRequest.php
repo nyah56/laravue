@@ -22,7 +22,9 @@ class ProductRequest extends FormRequest
                 'supplier_id'   => 'required|string|max:255',
                 'product_image' => 'required|string|max:255',
                 'price'         => 'required|integer|max:255',
-                'properties'    => 'nullable|json',
+                'properties'    => 'nullable|array',
+                'color'         => 'string',
+                'size'          => 'integer',
             ];
         } else {
             return [
@@ -30,7 +32,9 @@ class ProductRequest extends FormRequest
                 'supplier_id'   => 'sometimes|required|string|max:255',
                 'product_image' => 'sometimes|required|string|max:255',
                 'price'         => 'sometimes|required|integer|max:255',
-                'properties'    => 'nullable|json',
+                'properties'    => 'sometimes|array',
+                'color'         => 'string',
+                'size'          => 'integer',
             ];
         }
     }

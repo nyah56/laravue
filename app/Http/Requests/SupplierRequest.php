@@ -28,9 +28,11 @@ class SupplierRequest extends FormRequest
         } else {
             return [
 
-                'name'     => 'sometimes|string|max:255',
-                'address'  => 'sometimes|string|max:255',
-                'contacts' => 'json',
+                'name'           => 'sometimes|string|max:255',
+                'address'        => 'sometimes|string|max:255',
+                'contacts'       => 'array',
+                'contacts.phone' => 'sometimes|string',
+                'contacts.email' => 'sometimes|email',
 
             ];
         }
