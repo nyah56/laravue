@@ -16,6 +16,15 @@ class ProductRepository
     {
         return Products::find($id);
     }
+    public function getTrashed()
+    {
+        return Products::onlyTrashed()->get();
+    }
+    public function restoreItem($id)
+    {
+        return Products::onlyTrashed()->find($id)->restore();
+    }
+
     public function create($data)
     {
         return Products::create($data);

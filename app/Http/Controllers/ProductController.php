@@ -21,6 +21,29 @@ class ProductController extends Controller
         // dd($this->product->getAll());
         return ProductResource::collection($this->product->getAll());
     }
+    public function trashed()
+    {
+        // return response()->json([
+        //     'data' => $this->product->getAll(),
+        // ]);
+        // dd($this->product->getAll());
+        return ProductResource::collection($this->product->getTrashed());
+    }
+    public function restore($id)
+    {
+        $product = $this->product->restoreItem($id);
+
+        // dd($product_name);
+        if ($product) {
+            return response()->json([
+                'message' => 'Data Restored: ',
+            ]);
+        }
+        return response()->json([
+            'message' => 'Product not found',
+        ], 404);
+    }
+
     public function show($id)
     {
         $product = $this->product->getById($id);

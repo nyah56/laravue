@@ -24,14 +24,11 @@ class SupplierService
     {
         return $this->supplier->getTrashed();
     }
-    public function restoreItemTrashed($id)
+    public function restoreItem($id)
     {
-        $this->supplier->restoreItemTrashed($id);
+        return $this->supplier->restoreItem($id);
     }
-    public function restoreAllTrashed()
-    {
-        $this->supplier->restoreAllTrashed();
-    }
+
     public function getById($id)
     {
         return $this->supplier->getById($id);

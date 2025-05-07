@@ -16,9 +16,9 @@ Route::get('/audits', [AuditController::class, 'index']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/products', [ProductController::class, 'index']);
-    Route::get('/products/trashed', [ProductController::class, 'getTrashed']);
-    Route::get('/supplier/restore/{id}', [SupplierController::class, 'restore']);
-    Route::get('/supplier/restore-all/', [SupplierController::class, 'restoreAll']);
+    Route::get('/products/trashed', [ProductController::class, 'trashed']);
+    Route::get('/products/restore/{id}', [ProductController::class, 'restore']);
+
     Route::get('/products/{id}', [ProductController::class, 'show']);
     Route::put('/products/{id}', [ProductController::class, 'update']);
     Route::post('/products', [ProductController::class, 'store']);
@@ -28,7 +28,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/supplier/trashed/', [SupplierController::class, 'getTrashed']);
     Route::get('/supplier/{id}', [SupplierController::class, 'show']);
     Route::get('/supplier/restore/{id}', [SupplierController::class, 'restore']);
-    Route::get('/supplier/restore-all/', [SupplierController::class, 'restoreAll']);
     Route::post('/supplier', [SupplierController::class, 'store']);
     Route::put('/supplier/{id}', [SupplierController::class, 'update']);
     Route::delete('/supplier/{id}', [SupplierController::class, 'destroy']);

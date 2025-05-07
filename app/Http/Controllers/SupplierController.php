@@ -27,10 +27,10 @@ class SupplierController extends Controller
     public function restore($id)
     {
 
-        $supplier = $this->supplier->restoreItemTrashed($id);
+        $supplier = $this->supplier->restoreItem($id);
 
         // dd($supplier_name);
-        if (! $supplier) {
+        if ($supplier) {
             return response()->json([
                 'message' => 'Data Restored: ',
             ]);
@@ -38,18 +38,6 @@ class SupplierController extends Controller
         return response()->json([
             'message' => 'Supplier not found',
         ], 404);
-    }
-    public function restoreAll()
-    {
-
-        $supplier = $this->supplier->restoreAllTrashed();
-
-        // dd($supplier_name);
-
-        return response()->json([
-            'message' => 'Data Restored: ',
-        ]);
-
     }
 
     public function show($id)

@@ -19,6 +19,14 @@ class ProductService
     {
         return $this->product->getAll();
     }
+    public function getTrashed()
+    {
+        return $this->product->getTrashed();
+    }
+    public function restoreItem($id)
+    {
+        return $this->product->restoreItem($id);
+    }
     public function getById($id)
     {
         return $this->product->getById($id);

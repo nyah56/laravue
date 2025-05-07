@@ -17,14 +17,11 @@ class SupplierRepository
     {
         return Supplier::onlyTrashed()->get();
     }
-    public function restoreItemTrashed($id)
+    public function restoreItem($id)
     {
         return Supplier::onlyTrashed()->find($id)->restore();
     }
-    public function restoreAllTrashed()
-    {
-        return Supplier::onlyTrashed()->restore();
-    }
+
     public function getById($id)
     {
         return Supplier::find($id);
