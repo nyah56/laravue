@@ -21,7 +21,7 @@ class SupplierFactory extends Factory
             //
             'name'     => $this->faker->company(),
             'address'  => $this->faker->city(),
-            'contacts' => json_encode(["phone" => $this->faker->randomNumber()]),
+            'contacts' => ['phone' => $this->faker->numerify('08#########'), 'email' => $this->faker->email()],
         ];
     }
 }

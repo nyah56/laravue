@@ -7,14 +7,18 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\StockMovementController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/audits', [AuditController::class, 'index']);
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/products', [ProductController::class, 'index']);
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/products', [ProductController::class, 'index']);
+    Route::get('/products/trashed', [ProductController::class, 'getTrashed']);
+    Route::get('/supplier/restore/{id}', [SupplierController::class, 'restore']);
+    Route::get('/supplier/restore-all/', [SupplierController::class, 'restoreAll']);
     Route::get('/products/{id}', [ProductController::class, 'show']);
     Route::put('/products/{id}', [ProductController::class, 'update']);
     Route::post('/products', [ProductController::class, 'store']);
@@ -49,5 +53,9 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 Route::get('/user', function (Request $request) {
-    return $request->user();
+
+    return UserResource::make($request->user());
+})->middleware('auth:sanctum');
+Route::get('/usera', function (Request $request) {
+    return json_encode(\Illuminate\Support\Facades\Auth::user());
 })->middleware('auth:sanctum');

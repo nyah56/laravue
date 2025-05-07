@@ -22,8 +22,8 @@ class ProductsFactory extends Factory
             'name'          => 'Shoes by ' . $this->faker->company(),
             'supplier_id'   => $this->faker->randomNumber(),
             'product_image' => $this->faker->imageUrl(),
-            'price'         => $this->faker->randomNumber(),
-            'properties'    => json_encode(["size" => $this->faker->randomNumber(2), "color" => $this->faker->colorName()]),
+            'price'         => $this->faker->numberBetween(10, 100),
+            'properties'    => ["size" => $this->faker->numberBetween(10, 50), "color" => $this->faker->colorName()],
         ];
     }
 }
