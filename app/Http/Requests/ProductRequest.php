@@ -21,7 +21,7 @@ class ProductRequest extends FormRequest
                 'name'          => 'required|string|max:255',
                 'supplier_id'   => 'required|string|max:255',
                 'product_image' => 'required|string|max:255',
-                'price'         => 'required|integer|max:255',
+                'price'         => 'required|integer|max:99999999',
                 'properties'    => 'nullable|array',
                 'color'         => 'string',
                 'size'          => 'integer',
@@ -51,8 +51,8 @@ class ProductRequest extends FormRequest
             'product_image.string'   => 'The product image must be a string.',
             'product_image.max'      => 'The product image may not be greater than 255 characters.',
             'price.required'         => 'The price field is required.',
-            'price.string'           => 'The price must be a string.',
-            'price.max'              => 'The price may not be greater than 255 characters.',
+            'price.integer'          => 'The price must be a number.',
+            'price.max'              => 'The price may not be greater than 10000000',
             'properties.json'        => 'The properties must be a valid JSON string.',
         ];
     }
