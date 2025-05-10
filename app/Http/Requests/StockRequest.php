@@ -38,7 +38,7 @@ class StockRequest extends FormRequest
             'product_id.string'    => 'Product ID must be a string',
             'product_id.max'       => 'Product ID must not exceed 255 characters',
             'quantity.required'    => 'Quantity is required',
-            'quantity.string'      => 'Quantity must be a string',
+            'quantity.integer'     => 'Quantity must be a string',
             'quantity.max'         => 'Quantity must not exceed 255 characters',
             'description.nullable' => 'Description is optional',
         ];

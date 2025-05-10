@@ -18,7 +18,7 @@ class SupplierController extends Controller
             'data' => $this->supplier->getAll(),
         ]);
     }
-    public function getTrashed()
+    public function trashed()
     {
         return response()->json([
             'data' => $this->supplier->getTrashed(),

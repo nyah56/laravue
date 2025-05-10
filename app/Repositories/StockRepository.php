@@ -16,6 +16,14 @@ class StockRepository
     {
         return Stocks::find($id);
     }
+    public function restore($id)
+    {
+        return Stocks::onlyTrashed()->find($id)->restore();
+    }
+    public function getTrashed()
+    {
+        return Stocks::onlyTrashed()->get();
+    }
     public function create($data)
     {
         return Stocks::create($data);

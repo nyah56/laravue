@@ -18,6 +18,14 @@ class StockService
     {
         return $this->stocks->getAll();
     }
+    public function getTrashed()
+    {
+        return $this->stocks->getTrashed();
+    }
+    public function restore($id)
+    {
+        return $this->stocks->restore($id);
+    }
     public function getById($id)
     {
         return $this->stocks->getById($id);

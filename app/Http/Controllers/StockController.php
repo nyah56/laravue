@@ -21,6 +21,31 @@ class StockController extends Controller
         // dd($this->stocks->getAll());
         return StockResource::collection($this->stocks->getAll());
     }
+    public function trashed()
+    {
+        // return response()->json([
+        //     'data' => $this->stocks->getAll(),
+        // ]);
+        // dd($this->stocks->getAll());
+        return StockResource::collection($this->stocks->getTrashed());
+    }
+    public function restore($id)
+    {
+        // return response()->json([
+        //     'data' => $this->stocks->getAll(),
+        // ]);
+        // dd($this->stocks->getAll());
+        $stocks = $this->stocks->restore($id);
+        if ($stocks) {
+            return response()->json([
+                'data' => $stocks,
+            ]);
+        }
+        return response()->json([
+            'message' => 'stocks not found',
+        ], 404);
+
+    }
     public function show($id)
     {
         $stocks = $this->stocks->getById($id);

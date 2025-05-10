@@ -15,6 +15,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/audits', [AuditController::class, 'index']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::post('/register', [AuthController::class, 'register']);
     Route::get('/products', [ProductController::class, 'index']);
     Route::get('/products/trashed', [ProductController::class, 'trashed']);
     Route::get('/products/restore/{id}', [ProductController::class, 'restore']);
@@ -24,25 +25,27 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/products', [ProductController::class, 'store']);
     Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 
-    Route::get('/supplier', [SupplierController::class, 'index']);
-    Route::get('/supplier/trashed/', [SupplierController::class, 'getTrashed']);
-    Route::get('/supplier/{id}', [SupplierController::class, 'show']);
-    Route::get('/supplier/restore/{id}', [SupplierController::class, 'restore']);
-    Route::post('/supplier', [SupplierController::class, 'store']);
-    Route::put('/supplier/{id}', [SupplierController::class, 'update']);
-    Route::delete('/supplier/{id}', [SupplierController::class, 'destroy']);
+    Route::get('/suppliers', [SupplierController::class, 'index']);
+    Route::get('/suppliers/trashed/', [SupplierController::class, 'trashed']);
+    Route::get('/suppliers/{id}', [SupplierController::class, 'show']);
+    Route::get('/suppliers/restore/{id}', [SupplierController::class, 'restore']);
+    Route::post('/suppliers', [SupplierController::class, 'store']);
+    Route::put('/suppliers/{id}', [SupplierController::class, 'update']);
+    Route::delete('/suppliers/{id}', [SupplierController::class, 'destroy']);
 
-    Route::get('/stock', [StockController::class, 'index']);
-    Route::post('/stock', [StockController::class, 'store']);
-    Route::get('/stock/{id}', [StockController::class, 'show']);
-    Route::put('/stock/{id}', [StockController::class, 'update']);
-    Route::delete('/stock/{id}', [StockController::class, 'destroy']);
+    Route::get('/stocks', [StockController::class, 'index']);
+    Route::get('/stocks/trashed', [StockController::class, 'trashed']);
+    Route::get('/stocks/restore/{id}', [StockController::class, 'restore']);
+    Route::post('/stocks', [StockController::class, 'store']);
+    Route::get('/stocks/{id}', [StockController::class, 'show']);
+    Route::put('/stocks/{id}', [StockController::class, 'update']);
+    Route::delete('/stocks/{id}', [StockController::class, 'destroy']);
 
-    Route::get('/stock-movement', [StockMovementController::class, 'index']);
-    Route::post('/stock-movement', [StockMovementController::class, 'store']);
-    Route::get('/stock-movement/{id}', [StockMovementController::class, 'show']);
-    Route::put('/stock-movement/{id}', [StockMovementController::class, 'update']);
-    Route::delete('/stock-movement/{id}', [StockMovementController::class, 'destroy']);
+    Route::get('/stocks-movement', [StockMovementController::class, 'index']);
+    Route::post('/stocks-movement', [StockMovementController::class, 'store']);
+    Route::get('/stocks-movement/{id}', [StockMovementController::class, 'show']);
+    Route::put('/stocks-movement/{id}', [StockMovementController::class, 'update']);
+    Route::delete('/stocks-movement/{id}', [StockMovementController::class, 'destroy']);
 
     Route::get('/role', [RoleController::class, 'index']);
     Route::post('/role', [RoleController::class, 'store']);
