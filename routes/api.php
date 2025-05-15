@@ -41,11 +41,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/stocks/{id}', [StockController::class, 'update']);
     Route::delete('/stocks/{id}', [StockController::class, 'destroy']);
 
-    Route::get('/stocks-movement', [StockMovementController::class, 'index']);
-    Route::post('/stocks-movement', [StockMovementController::class, 'store']);
-    Route::get('/stocks-movement/{id}', [StockMovementController::class, 'show']);
-    Route::put('/stocks-movement/{id}', [StockMovementController::class, 'update']);
-    Route::delete('/stocks-movement/{id}', [StockMovementController::class, 'destroy']);
+    Route::get('/stock-movement', [StockMovementController::class, 'index']);
+    Route::post('/stock-movement', [StockMovementController::class, 'store']);
+    Route::get('/stock-movement/{id}', [StockMovementController::class, 'show']);
+    Route::put('/stock-movement/{id}', [StockMovementController::class, 'update']);
+    Route::delete('/stock-movement/{id}', [StockMovementController::class, 'destroy']);
 
     Route::get('/role', [RoleController::class, 'index']);
     Route::post('/role', [RoleController::class, 'store']);

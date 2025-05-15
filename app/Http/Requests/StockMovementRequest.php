@@ -23,8 +23,11 @@ class StockMovementRequest extends FormRequest
                 'type'              => 'required|in:in,out',
                 'quantity'          => 'required|numeric|min:1',
                 'reason'            => 'required|max:255',
-                'manifest_hardcopy' => 'nullable|file|mimes:pdf|between:100,500',
-                'meta'              => 'nullable|json',
+                'manifest_hardcopy' => 'sometimes|file|mimes:pdf|between:100,500',
+                'meta'              => 'nullable|array',
+
+                'phone'             => 'string',
+                'email'             => 'string',
             ];
         } else {
             return [
@@ -34,7 +37,10 @@ class StockMovementRequest extends FormRequest
                 'quantity'          => 'sometimes|required|numeric|min:1',
                 'reason'            => 'sometimes|required|max:255',
                 'manifest_hardcopy' => 'sometimes|file|mimes:pdf|between:100,500',
-                'meta'              => 'sometimes|json',
+                'meta'              => 'sometimes',
+                'contacts'          => 'nullable|array',
+                'phone'             => 'string',
+                'email'             => 'string',
             ];
         }
     }

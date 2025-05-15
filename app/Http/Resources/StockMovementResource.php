@@ -18,11 +18,10 @@ class StockMovementResource extends JsonResource
             'product_name'      => $this->product->name,
             'date'              => $this->date,
             'type'              => $this->type,
-            'qty'               => $this->quantity,
+            'quantity'          => $this->quantity,
             'reason'            => $this->reason,
             'manifest_hardcopy' => $this->manifest_hardcopy,
             'meta'              => $this->meta,
-            // 'properties'   => $this->properties,
 
         ];
 

@@ -26,7 +26,8 @@ class StockMovement extends Model implements AuditableContract
     protected $keyType    = 'string';
     public $incrementing  = false;
     protected $casts      = [
-        'contacts' => 'array',
+        'meta' => 'array',
+        // 'manifest_hardcopy' => 'array',
     ];
 
     protected $table   = 'stock_movements';

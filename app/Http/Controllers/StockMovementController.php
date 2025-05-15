@@ -24,9 +24,7 @@ class StockMovementController extends Controller
     {
         $stocks = $this->stocks->getById($id);
         if ($stocks) {
-            return response()->json([
-                'data' => $stocks,
-            ]);
+            return StockMovementResource::make($stocks);
         }
         return response()->json([
             'message' => 'stocks not found',
@@ -43,6 +41,9 @@ class StockMovementController extends Controller
         return response()->json([
             'data' => $stocks,
         ]);
+        // return response()->json([
+        //     'data' => $validated,
+        // ]);
     }
     public function update(StockMovementRequest $request, $id)
     {
